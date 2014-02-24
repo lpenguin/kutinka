@@ -63,10 +63,11 @@ class Game:
 		i = 0
 		items = []
 		for build in self.buildings:
-			items.append("%2d: %13s"  % (i, "[%s]" % build.name))
+			building_type = ":) -> :|" if build.cost.type == Cost.POSITIVE_TYPE else ":| -> :("
+			items.append("%2d: %16s"  % (i, "[ %2s %s]" % (building_type, build.name)))
 			i += 1
 			if i % settings.PRINT_ROWS == 0:
-				print " |".join(items)
+				print " ,".join(items)
 				items = []
 
 
